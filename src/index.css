@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F3ECF7;
+  --text: rgb(59, 60, 63);
+  --border: #e7e2eb;
+  --muted: #6b7280;
+}
+
+[data-theme='dark'] {
+  --bg: #1A171C;
+  --text: #e6eef8;
+  --border: #382f3d;
+  --muted: #9aa7b2;
+}
+
+html, body, #root { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  /* font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; */
+  /* font-family: "Poppins", sans-serif !important; */
+  /* font-weight: 400 !important; */
+  /* font-style: normal !important; */
+}
+
+.card { background: rgba(255,255,255,0.03); }
