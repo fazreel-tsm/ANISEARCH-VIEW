@@ -1,6 +1,7 @@
 import { Frown } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FrostedBackground } from "../components/FrostedBackground";
 
 export default function NotFoundPage() {
   const [isDark, setIsDark] = useState<boolean>(
@@ -20,9 +21,7 @@ export default function NotFoundPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center text-text font-headline">
-      <div className="fixed inset-0 -z-10 pointer-events-none">
-        <div className="w-full h-full bg-bg/30 backdrop-blur-2xl rounded-xl shadow-inner" />
-      </div>
+      <FrostedBackground />
 
       <img
         src="/anime_sad_face.png"
