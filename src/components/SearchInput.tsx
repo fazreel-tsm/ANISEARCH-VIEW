@@ -25,14 +25,15 @@ export default function SearchInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder || "Search..."}
         className={`
-          font-normal border border-0 ring-0 font-headline
-          bg-transparent rounded-full px-12 py-2 w-full
-          [background-image:linear-gradient(0deg,rgba(72,174,222,0.1)_0%,rgba(56,148,221,0)_50%,rgba(163,51,255,0.1)_100%)]
-          shadow-[0_0_3.5px_#2574DD]
+          font-normal border-0 ring-0 font-headline text-sm
+          bg-bg-input rounded-full px-12 py-2 w-full
+          placeholder:text-placeholder
+          [background-image:linear-gradient(0deg,rgba(72,174,222,0.15)_0%,rgba(56,148,221,0)_50%,rgba(163,51,255,0.15)_100%)]
+          shadow-[0_0_2px_#2574DD]
           transition-all duration-150 ease-in-out
           outline-none focus:outline-none focus-visible:outline-none
-          hover:shadow-[0_0_6px_#2574DD]
-          focus:shadow-[0_0_9px_#2574DD]
+          hover:shadow-[0_0_5px_theme(colors.glow)]
+          focus:shadow-[0_0_8px_theme(colors.glow)]
           ${className}
         `}
       />

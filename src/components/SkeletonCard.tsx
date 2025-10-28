@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SkeletonAnimeCard() {
   return (
-    <div className="animate-pulse group block rounded-xl overflow-hidden shadow-md bg-gray-200 dark:bg-gray-700 transition-all duration-300">
+    <div className="animate-pulse-reverse group block rounded-xl overflow-hidden shadow-md bg-gray-200 dark:bg-gray-700 transition-all duration-300">
       {/* Image placeholder */}
       <div className="relative aspect-[2/3] bg-gray-300 dark:bg-gray-600" />
 

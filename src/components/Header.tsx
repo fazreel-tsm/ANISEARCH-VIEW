@@ -8,7 +8,7 @@ export default function Header() {
     <header className="
       sticky top-0 z-30 bg-bg/80 backdrop-blur-md 
       w-full p-4 flex items-center justify-between 
-      border-b border-border text-[#A333FF] 
+      border-b border-border text-header 
       transition-all
     ">
       <Link to="/" className="flex items-center gap-2">
