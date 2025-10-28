@@ -5,11 +5,12 @@ import SkeletonCard from "../components/SkeletonCard";
 import Pagination from "../components/Pagination";
 import { setQuery, setPage, fetchAnime } from "../store/animeSlice";
 import { useDebouncedEffect } from "../hooks/useDebouncedSearch";
-import SearchInput from "../components/SearchInput";
+import SearchInput from "../components/ui/SearchInput";
 import { AnimeCard } from "../components/AnimeCard";
 import { RecommendedType, searchAnime } from "../api/jikan";
-import ScrollToTopButton from "../components/ScrollToTopButton";
-import { TabButton } from "../components/TabButton";
+import ScrollToTopButton from "../components/ui/ScrollToTopButton";
+import { TabButton } from "../components/ui/TabButton";
+import { FrostedBackground } from "../components/FrostedBackground";
 
 export default function SearchPage() {
   const dispatch = useAppDispatch();
@@ -51,10 +52,7 @@ export default function SearchPage() {
   return (
     <div className="relative min-h-screen font-headline">
       <Header />
-      {/* Frosted backgrou`nd */}
-      <div className="fixed inset-0 -z-10 pointer-events-none">
-        <div className="w-full h-full bg-bg/30 backdrop-blur-2xl rounded-xl shadow-inner" />
-      </div>
+      <FrostedBackground />
       <main className="relative p-4 max-w-6xl mx-auto">
         {/* Search input */}
         <div className="flex justify-center">

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "./ui/ThemeToggle";
 import { Clapperboard } from "lucide-react";
 
 export default function Header() {
@@ -12,7 +12,12 @@ export default function Header() {
       transition-all
     ">
       <Link to="/" className="flex items-center gap-2">
-        <Clapperboard className="h-8 w-8 text-primary" />
+        <img
+          src="/favicon.png"
+          alt="AniSearch Logo"
+          className="h-8 w-8 object-contain"
+        />
+
         <span className="font-headline text-xl font-bold text-primary">
           AniSearch
         </span>
