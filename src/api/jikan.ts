@@ -1,10 +1,9 @@
 import { api } from './axios'
 import type { AnimeSearchResponse } from '../types'
 
-export type RecommendedType = 'recent' | 'popular' | 'rated'
+export type RecommendedType ='popular' | 'rated'
 
 const recommendedMap: Record<RecommendedType, { order_by: string; sort: 'asc' | 'desc' }> = {
-  recent: { order_by: 'start_date', sort: 'desc' },
   popular: { order_by: 'popularity', sort: 'desc' },
   rated: { order_by: 'score', sort: 'desc' }
 }

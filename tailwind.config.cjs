@@ -10,7 +10,12 @@ module.exports = {
       },
       colors: {
         bg: 'var(--bg)',
+        'bg-input': 'var(--bg-input)',
         border: 'var(--border)',
+        glow: 'var(--glow)',
+        header: 'var(--header)',
+        text: 'var(--text)',
+        placeholder: 'var(--placeholder)',
       }
     }
   },

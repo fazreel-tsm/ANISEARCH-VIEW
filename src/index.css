@@ -4,26 +4,49 @@
 
 :root {
   --bg: #F3ECF7;
+  --bg-input: #f3ecf754;
+  --bg-image: url('/bg-light.jpg');
   --text: rgb(59, 60, 63);
-  --border: #e7e2eb;
-  --muted: #6b7280;
+  --placeholder: rgba(59, 60, 63, 0.75);
+  --border: #a25fd8;
+  --glow: #104080;
+  --header: #4c117d;
 }
 
 [data-theme='dark'] {
   --bg: #1A171C;
+  --bg-input: #1A171C54;
+  --bg-image: url('/bg-dark.jpg');
   --text: #e6eef8;
+  --placeholder: #e6eef8b9;
   --border: #382f3d;
-  --muted: #9aa7b2;
+  --glow: #2574DD;
+  --header: #A333FF;
 }
 
-html, body, #root { height: 100%; }
+html, body, #root {
+  min-height: 100%;
+}
+
 body {
-  background: var(--bg);
   color: var(--text);
-  /* font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; */
-  /* font-family: "Poppins", sans-serif !important; */
-  /* font-weight: 400 !important; */
-  /* font-style: normal !important; */
+  background-color: var(--bg);
+  background-image: var(--bg-image);
+  background-attachment: scroll;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.card { background: rgba(255,255,255,0.03); }
+.card {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+@keyframes pulse-reverse {
+  0%, 100% { opacity: 0.5; }  /* start transparent */
+  50% { opacity: 1; }         /* become fully visible */
+}
+
+.animate-pulse-reverse {
+  animation: pulse-reverse 1.5s ease-in-out infinite;
+}
