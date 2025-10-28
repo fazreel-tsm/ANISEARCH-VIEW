@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* light mode */
+:root { 
   --bg: #F3ECF7;
   --bg-input: #f3ecf754;
   --bg-image: url('/bg-light.jpg');
@@ -11,8 +12,13 @@
   --border: #a25fd8;
   --glow: #104080;
   --header: #4c117d;
+  --tab: #f3ecf76e;
+  --tab-hover: #f3ecf7cb;
+  --tab-active: #b278ff; 
+  --tab-border: #3b1080; 
 }
 
+/* dark mode */
 [data-theme='dark'] {
   --bg: #1A171C;
   --bg-input: #1A171C54;
@@ -22,6 +28,10 @@
   --border: #382f3d;
   --glow: #2574DD;
   --header: #A333FF;
+  --tab: #f3ecf731; 
+  --tab-hover: #f3ecf748; 
+  --tab-active: #3b1080; 
+  --tab-border: #8f39ff; 
 }
 
 html, body, #root {

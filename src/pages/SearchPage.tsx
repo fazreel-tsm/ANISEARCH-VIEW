@@ -9,6 +9,7 @@ import SearchInput from "../components/SearchInput";
 import { AnimeCard } from "../components/AnimeCard";
 import { RecommendedType, searchAnime } from "../api/jikan";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import { TabButton } from "../components/TabButton";
 
 export default function SearchPage() {
   const dispatch = useAppDispatch();
@@ -70,17 +71,11 @@ export default function SearchPage() {
         {!query && (
           <div className="flex justify-center gap-4 mb-4">
             {["popular", "rated"].map((type) => (
-              <button
-                key={type}
-                className={`px-3 py-1 rounded-full font-semibold text-xs ${
-                  recommendedType === type
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-                }`}
+              <TabButton 
+                label={`Most ${type.charAt(0).toUpperCase() + type.slice(1)}`} 
+                active={recommendedType === type}
                 onClick={() => setRecommendedType(type as RecommendedType)}
-              >
-                Most {type.charAt(0).toUpperCase() + type.slice(1)}
-              </button>
+              />
             ))}
           </div>
         )}

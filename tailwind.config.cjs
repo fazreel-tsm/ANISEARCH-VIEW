@@ -16,6 +16,10 @@ module.exports = {
         header: 'var(--header)',
         text: 'var(--text)',
         placeholder: 'var(--placeholder)',
+        tab: 'var(--tab)',
+        'tab-active': 'var(--tab-active)',
+        'tab-hover': 'var(--tab-hover)',
+        'tab-border': 'var(--tab-border)',
       }
     }
   },
