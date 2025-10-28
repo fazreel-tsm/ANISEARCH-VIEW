@@ -1,5 +1,5 @@
 import React from "react";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 interface SearchInputProps {
   value: string;
@@ -27,7 +27,7 @@ export default function SearchInput({
         className={`
           font-normal border-0 ring-0 font-headline text-sm
           bg-bg-input rounded-full px-12 py-2 w-full
-          placeholder:text-placeholder
+          placeholder:text-placeholder placeholder:text-center focus-within:placeholder:opacity-0
           [background-image:linear-gradient(0deg,rgba(72,174,222,0.15)_0%,rgba(56,148,221,0)_50%,rgba(163,51,255,0.15)_100%)]
           shadow-[0_0_2px_#2574DD]
           transition-all duration-150 ease-in-out
@@ -37,6 +37,18 @@ export default function SearchInput({
           ${className}
         `}
       />
+
+      {/* Clear Button */}
+      {value && (
+        <button
+          type="button"
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => onChange("")}
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition"
+        >
+          <X className="w-4 h-4" />
+        </button>
+      )}
     </div>
   );
 }

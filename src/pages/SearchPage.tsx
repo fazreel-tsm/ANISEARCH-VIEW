@@ -58,7 +58,7 @@ export default function SearchPage() {
       <main className="relative p-4 max-w-6xl mx-auto">
         {/* Search input */}
         <div className="flex justify-center">
-          <div className="w-full max-w-lg sm:max-w-lg lg:max-w-xl transition-all duration-200 focus-within:max-w-2xl">
+          <div className="w-full max-w-xs transition-all duration-200 focus-within:max-w-md">
             <SearchInput
               value={query}
               onChange={(val) => dispatch(setQuery(val))}
@@ -94,7 +94,7 @@ export default function SearchPage() {
 
           {!loading && results.length === 0 && (
             <div className="col-span-full p-6 text-center text-gray-500">
-              No results. Try a different query.
+              No results. Try a different keyword.
             </div>
           )}
         </div>
