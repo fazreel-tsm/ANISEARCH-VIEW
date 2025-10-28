@@ -4,7 +4,7 @@ import type { AnimeSearchResponse } from '../types'
 export type RecommendedType ='popular' | 'rated'
 
 const recommendedMap: Record<RecommendedType, { order_by: string; sort: 'asc' | 'desc' }> = {
-  popular: { order_by: 'popularity', sort: 'desc' },
+  popular: { order_by: 'popularity', sort: 'asc' },
   rated: { order_by: 'score', sort: 'desc' }
 }
 
