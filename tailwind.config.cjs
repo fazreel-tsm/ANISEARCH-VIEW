@@ -20,6 +20,8 @@ module.exports = {
         'tab-active': 'var(--tab-active)',
         'tab-hover': 'var(--tab-hover)',
         'tab-border': 'var(--tab-border)',
+        'pagination-active': 'var(--pagination-active)',
+        'pagination-hover': 'var(--pagination-hover)',
       }
     }
   },

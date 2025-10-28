@@ -12,16 +12,20 @@ export default function Pagination({ current, last, onPage }: Props) {
   const end = Math.min(last, current + 2)
   for (let i = start; i <= end; i++) pages.push(i)
 
+  const defaultClass = "text-sm transition rounded-md px-3 py-1.5 text-text active:scale-95 backdrop-blur-xl"
+  const defaultClassActive = "bg-pagination-active font-semibold "
+  const defaultClassInactive = "bg-transparent hover:bg-pagination-hover "
+
   return (
     <div className="flex items-center justify-center gap-2 mt-6 select-none">
       {/* Prev button */}
       <button
         onClick={() => onPage(current - 1)}
         disabled={current <= 1}
-        className={`px-3 py-1.5 rounded-md text-sm transition
+        className={`${defaultClass}
           ${current <= 1
             ? 'opacity-40 cursor-not-allowed'
-            : 'hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}
+            : defaultClassInactive}
         `}
       >
         Prev
@@ -32,7 +36,7 @@ export default function Pagination({ current, last, onPage }: Props) {
         <>
           <button
             onClick={() => onPage(1)}
-            className="px-3 py-1.5 rounded-md text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            className={defaultClass + defaultClassInactive}
           >
             1
           </button>
@@ -45,11 +49,11 @@ export default function Pagination({ current, last, onPage }: Props) {
         <button
           key={p}
           onClick={() => onPage(p)}
-          className={`px-3 py-1.5 rounded-md text-sm transition
+          className={`${defaultClass}
             ${
               p === current
-                ? 'bg-gray-800 text-white dark:bg-gray-200 dark:text-black font-semibold'
-                : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                ? defaultClassActive
+                : defaultClassInactive
             }`}
         >
           {p}
@@ -62,7 +66,7 @@ export default function Pagination({ current, last, onPage }: Props) {
           {end < last - 1 && <span className="text-gray-400">…</span>}
           <button
             onClick={() => onPage(last)}
-            className="px-3 py-1.5 rounded-md text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            className={defaultClass + defaultClassInactive}
           >
             {last}
           </button>
@@ -73,10 +77,10 @@ export default function Pagination({ current, last, onPage }: Props) {
       <button
         onClick={() => onPage(current + 1)}
         disabled={current >= last}
-        className={`px-3 py-1.5 rounded-md text-sm transition
+        className={`${defaultClass}
           ${current >= last
             ? 'opacity-40 cursor-not-allowed'
-            : 'hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}
+            : defaultClassInactive}
         `}
       >
         Next
