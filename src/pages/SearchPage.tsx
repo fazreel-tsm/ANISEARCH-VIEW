@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import Header from "../components/Header";
-import SkeletonCard from "../components/SkeletonCard";
+import SkeletonAnimeCard from "../components/SkeletonAnimeCard";
 import Pagination from "../components/Pagination";
 import { setQuery, setPage, fetchAnime } from "../store/animeSlice";
 import { useDebouncedEffect } from "../hooks/useDebouncedSearch";
@@ -17,6 +17,10 @@ export default function SearchPage() {
   const { query, page, results, loading, error, pagination } = useAppSelector(
     (s) => s.anime
   );
+
+  useEffect(() => {
+    document.title = `AniSearch`;
+  }, []);
 
   // Recommended anime state
   const [recommendedType, setRecommendedType] =
@@ -38,7 +42,7 @@ export default function SearchPage() {
     (signal) => {
       if (query) {
         const isNewQuery = prevQuery.current !== query;
-        if(isNewQuery) dispatch(setPage(1))
+        if (isNewQuery) dispatch(setPage(1));
 
         dispatch(fetchAnime({ q: query, page: isNewQuery ? 1 : page, signal }));
 
@@ -52,7 +56,7 @@ export default function SearchPage() {
   return (
     <div className="relative min-h-screen font-headline">
       <Header />
-      <FrostedBackground />
+      
       <main className="relative p-4 max-w-6xl mx-auto">
         {/* Search input */}
         <div className="flex justify-center">
@@ -69,8 +73,8 @@ export default function SearchPage() {
         {!query && (
           <div className="flex justify-center gap-4 mb-4">
             {["popular", "rated"].map((type) => (
-              <TabButton 
-                label={`Most ${type.charAt(0).toUpperCase() + type.slice(1)}`} 
+              <TabButton
+                label={`Most ${type.charAt(0).toUpperCase() + type.slice(1)}`}
                 active={recommendedType === type}
                 onClick={() => setRecommendedType(type as RecommendedType)}
               />
@@ -83,7 +87,7 @@ export default function SearchPage() {
         {/* Anime Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 relative">
           {loading &&
-            Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)}
+            Array.from({ length: 8 }).map((_, i) => <SkeletonAnimeCard key={i} />)}
 
           {!loading &&
             results.map((anime) => (

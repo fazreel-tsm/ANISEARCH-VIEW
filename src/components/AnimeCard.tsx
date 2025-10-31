@@ -34,7 +34,7 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {
   return (
     <Link
       to={`/anime/${anime.mal_id}-${slug}`}
-      className="group block rounded-xl overflow-hidden shadow-md bg-white dark:bg-gray-800 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group block rounded-xl overflow-hidden shadow-md bg-white/60 dark:bg-gray-800/60 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="relative aspect-[2/3] overflow-hidden">
         {!loaded && (

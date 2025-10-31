@@ -22,7 +22,7 @@ export const Badge: React.FC<BadgeProps> = ({
       break;
     case "outline":
       variantClasses =
-        "border border-border text-text";
+        "border border-[2px] border-border text-text";
       break;
     default:
       variantClasses =
