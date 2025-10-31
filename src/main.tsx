@@ -5,6 +5,16 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import { store } from './store'
 import './index.css'
+import { registerSW } from 'virtual:pwa-register'
+
+registerSW({
+  onNeedRefresh() {
+    console.log('New content available, please refresh.')
+  },
+  onOfflineReady() {
+    console.log('App ready to work offline.')
+  },
+})
 
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
