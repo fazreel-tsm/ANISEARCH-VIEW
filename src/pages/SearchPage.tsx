@@ -23,8 +23,17 @@ export default function SearchPage() {
   }, []);
 
   // Recommended anime state
-  const [recommendedType, setRecommendedType] =
-    useState<RecommendedType>("popular");
+  const [recommendedType, setRecommendedType] = useState<RecommendedType>("popular");
+  const recommendedTab = [
+    {
+      label: "Most Popular",
+      key: 'popular',
+    },
+    {
+      label: "Top Rated",
+      key: 'rated',
+    },
+  ]
 
   const prevQuery = useRef(query);
 
@@ -72,11 +81,11 @@ export default function SearchPage() {
         {/* Recommended type buttons */}
         {!query && (
           <div className="flex justify-center gap-4 mb-4">
-            {["popular", "rated"].map((type) => (
+            {recommendedTab.map((type) => (
               <TabButton
-                label={`Most ${type.charAt(0).toUpperCase() + type.slice(1)}`}
-                active={recommendedType === type}
-                onClick={() => setRecommendedType(type as RecommendedType)}
+                label={type.label}
+                active={recommendedType === type.key}
+                onClick={() => setRecommendedType(type.key as RecommendedType)}
               />
             ))}
           </div>
