@@ -21,8 +21,8 @@ export default function Pagination({ current, last, onPage, canJump }: Props) {
   for (let i = start; i <= end; i++) pages.push(i);
 
   const defaultClass =
-    "text-sm transition rounded-md px-3 py-1.5 text-text active:scale-95 backdrop-blur-xl";
-  const defaultClassActive = "bg-pagination-active font-semibold ";
+    "text-sm transition rounded-md px-3 py-1.5 text-text active:scale-95 ";
+  const defaultClassActive = "bg-pagination-active font-semibold backdrop-blur-xl ";
   const defaultClassInactive = "bg-transparent hover:bg-pagination-hover ";
 
   const handleJump = () => {
@@ -106,7 +106,7 @@ export default function Pagination({ current, last, onPage, canJump }: Props) {
           {/* Jump Button (shown first) */}
           <button
             onClick={() => setShowJump(true)}
-            className={`absolute px-3 py-1 rounded-md bg-header hover:scale-105 transition-all duration-300
+            className={`absolute px-3 py-1 rounded-md bg-header hover:scale-105 transition-all duration-300 text-gray-200
             ${!showJump ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}
           >
             Jump

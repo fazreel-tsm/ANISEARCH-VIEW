@@ -23,7 +23,7 @@ export default function OverviewTab({ anime }: OverviewTabProps) {
   };
   const infoItems = [
     { label: "Type", value: anime.type, icon: ClapperboardIcon },
-    { label: "Episodes", value: anime.episodes, icon: PlayCircle },
+    { label: "Episodes", value: (anime.type.toLowerCase() !== "movie") ? anime.episodes : null, icon: PlayCircle },
     {
       label: "Aired",
       value: anime.aired?.from
