@@ -51,7 +51,7 @@ export default function CharactersTab({ animeId }: { animeId: number }) {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {filteredCharacters.length === 0 ? (
           <p className="col-span-full text-center text-sm mt-10">
-            No staff found
+            No character found
           </p>
         ) : (
           filteredCharacters?.map((c) => (

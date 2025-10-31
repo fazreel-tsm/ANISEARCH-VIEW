@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { FcPrevious } from "react-icons/fc";
+import { GiPreviousButton } from "react-icons/gi";
+import { GrNext, GrPrevious } from "react-icons/gr";
+import { ImPrevious } from "react-icons/im";
 
 interface Props {
   current: number;
   last: number;
   onPage: (p: number) => void;
+  canJump?: boolean,
 }
 
-export default function Pagination({ current, last, onPage }: Props) {
+export default function Pagination({ current, last, onPage, canJump }: Props) {
   const [pageInput, setPageInput] = useState<number | "">("");
   const [showJump, setShowJump] = useState(false);
 
@@ -28,9 +33,9 @@ export default function Pagination({ current, last, onPage }: Props) {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 mt-6 select-none">
+    <div className="flex flex-col items-center gap-3 mt-6 select-none">
       {/* Pagination controls */}
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center gap-1">
         <button
           onClick={() => onPage(current - 1)}
           disabled={current <= 1}
@@ -40,7 +45,7 @@ export default function Pagination({ current, last, onPage }: Props) {
               : defaultClassInactive
           }`}
         >
-          Prev
+          <GrPrevious />
         </button>
 
         {/* First + Ellipsis */}
@@ -91,49 +96,59 @@ export default function Pagination({ current, last, onPage }: Props) {
               : defaultClassInactive
           }`}
         >
-          Next
+          <GrNext />
         </button>
       </div>
 
       {/* Jump to page (only visible when toggled) */}
-      <div className="relative flex items-center justify-center text-sm text-text h-5">
-        {/* Jump Button (shown first) */}
-        <button
-          onClick={() => setShowJump(true)}
-          className={`absolute px-3 py-1 rounded-md bg-header text-gray-200 hover:scale-105 transition-all duration-300
-          ${!showJump ? "opacity-85 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}
-        >
-          Jump
-        </button>
-
-        {/* Jump Input Section (shown after click) */}
-        <div
-          className={`absolute flex flex-nowrap items-center gap-2 whitespace-nowrap transition-all duration-300
-          ${showJump ? "opacity-85 translate-x-0" : "opacity-0 translate-x-10 pointer-events-none"}`}
-        >
-          <span className="whitespace-nowrap">Jump to page:</span>
-          <input
-            type="number"
-            min={1}
-            max={last}
-            value={pageInput}
-            onChange={(e) =>
-              setPageInput(e.target.value ? Number(e.target.value) : "")
-            }
-            onKeyDown={(e) => e.key === "Enter" && handleJump()}
-            className="w-16 px-2 py-1 border border-border rounded-md bg-bg text-center
-        [&::-webkit-inner-spin-button]:appearance-none
-        [&::-webkit-outer-spin-button]:appearance-none
-        [appearance:textfield]"
-          />
+      {canJump &&
+        <div className="relative flex items-center justify-center text-xs text-text h-5">
+          {/* Jump Button (shown first) */}
           <button
-            onClick={handleJump}
-            className="px-3 py-1 rounded-md bg-pagination-active text-text font-semibold hover:scale-105 transition"
+            onClick={() => setShowJump(true)}
+            className={`absolute px-3 py-1 rounded-md bg-header hover:scale-105 transition-all duration-300
+            ${!showJump ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"}`}
           >
-            Go
+            Jump
           </button>
+
+          {/* Jump Input Section (shown after click) */}
+          <div
+            className={`absolute flex flex-nowrap items-center gap-2 whitespace-nowrap transition-all duration-300
+            ${showJump ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10 pointer-events-none"}`}
+          >
+            <span className="whitespace-nowrap">Jump to page:</span>
+            <input
+              type="number"
+              min={1}
+              max={last}
+              value={pageInput}
+              onChange={(e) =>
+                setPageInput(e.target.value ? Number(e.target.value) : "")
+              }
+              onKeyDown={(e) => e.key === "Enter" && handleJump()}
+              className="w-16 px-2 py-1 border border-border rounded-md bg-bg text-center
+                focus:outline-none focus:ring-0
+                [&::-webkit-inner-spin-button]:appearance-none
+                [&::-webkit-outer-spin-button]:appearance-none
+                [appearance:textfield]"
+            />
+            <button
+              onClick={handleJump}
+              className="px-3 py-1 rounded-md bg-pagination-active text-text font-semibold hover:scale-105 transition 
+                disabled:cursor-not-allowed disabled:hover:scale-100 disabled:opacity-50
+              "
+              disabled={
+                !pageInput ||
+                Number(pageInput) < 1 ||
+                Number(pageInput) > last
+              }
+            >
+              Go
+            </button>
+          </div>
         </div>
-      </div>
+      }
     </div>
   );
 }

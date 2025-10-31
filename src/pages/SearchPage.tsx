@@ -107,6 +107,7 @@ export default function SearchPage() {
               current={pagination.current_page}
               last={pagination.last_visible_page}
               onPage={(p) => dispatch(setPage(p))}
+              canJump
             />
           )}
         </div>

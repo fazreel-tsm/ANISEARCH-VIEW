@@ -2,7 +2,7 @@ import React from "react";
 
 export const LoadingScreen: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center text-text font-headline">
+    <div className="flex flex-col items-center justify-center min-h-screen text-center text-text font-headline px-20">
       {/* Biking Character */}
       <div className="relative w-full max-w-md h-8 mb-8">
         <img
