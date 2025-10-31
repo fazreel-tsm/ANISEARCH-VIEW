@@ -11,8 +11,8 @@ export default function Pagination({ current, last, onPage }: Props) {
   const [showJump, setShowJump] = useState(false);
 
   const pages: number[] = [];
-  const start = Math.max(1, current - 2);
-  const end = Math.min(last, current + 2);
+  const start = Math.max(1, current - 1);
+  const end = Math.min(last, current + 1);
   for (let i = start; i <= end; i++) pages.push(i);
 
   const defaultClass =
