@@ -25,7 +25,7 @@ export default function SearchInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder || "Search..."}
         className={`
-          font-normal border-0 ring-0 font-headline text-sm
+          font-normal border-0 ring-0 font-headline text-[16px]
           bg-bg-input rounded-full px-12 py-2 w-full
           placeholder:text-placeholder placeholder:text-center focus-within:placeholder:opacity-0
           [background-image:linear-gradient(0deg,rgba(72,174,222,0.15)_0%,rgba(56,148,221,0)_50%,rgba(163,51,255,0.15)_100%)]
