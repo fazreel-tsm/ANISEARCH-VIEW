@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchAnimeStaff } from "../../store/animeDetailSlice";
-import { Search } from "lucide-react";
 import SearchInput from "../ui/SearchInput";
+import StaffCard from "../StaffCard";
 
 export default function StaffTab({ animeId }: { animeId: number }) {
   const dispatch = useAppDispatch();
@@ -57,27 +57,7 @@ export default function StaffTab({ animeId }: { animeId: number }) {
             No staff found
           </p>
         ) : (
-          filteredStaff?.map((s) => (
-            <div
-              key={s.person.mal_id}
-              className="bg-tab-hover rounded-xl p-3 flex items-center gap-3"
-            >
-              <img
-                src={
-                  s.person?.images?.webp?.image_url ||
-                  s.person?.images?.jpg?.image_url
-                }
-                alt={s.person.name}
-                className="w-16 h-16 rounded-md object-cover shadow"
-              />
-              <div>
-                <p className="font-medium">{s.person.name}</p>
-                <p className="text-xs text-muted-foreground">
-                  {s.positions?.join(", ")}
-                </p>
-              </div>
-            </div>
-          ))
+          filteredStaff?.map((s) => ( <StaffCard key={s.person.mal_id} s={s} /> ))
         )}
       </div>
     </div>

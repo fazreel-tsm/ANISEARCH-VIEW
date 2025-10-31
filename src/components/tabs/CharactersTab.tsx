@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchAnimeCharacters } from "../../store/animeDetailSlice";
 import SearchInput from "../ui/SearchInput";
+import CharacterCard from "../CharacterCard";
 
 export default function CharactersTab({ animeId }: { animeId: number }) {
   const dispatch = useAppDispatch();
@@ -48,6 +49,7 @@ export default function CharactersTab({ animeId }: { animeId: number }) {
         </div>
       </div>
 
+      {/* Character Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {filteredCharacters.length === 0 ? (
           <p className="col-span-full text-center text-sm mt-10">
@@ -55,26 +57,11 @@ export default function CharactersTab({ animeId }: { animeId: number }) {
           </p>
         ) : (
           filteredCharacters?.map((c) => (
-            <div
-              key={c.character.mal_id}
-              className="bg-tab-hover rounded-xl p-3 flex flex-col items-center"
-            >
-              <img
-                src={
-                  c.character.images?.webp?.image_url ||
-                  c.character.images?.jpg?.image_url
-                }
-                alt={c.character.name}
-                className="w-24 h-24 rounded-lg object-cover shadow-md mb-2"
-              />
-              <p className="font-medium text-sm text-center">
-                {c.character.name}
-              </p>
-              <p className="text-xs text-muted-foreground">{c.role}</p>
-            </div>
+            <CharacterCard key={c.character.mal_id} c={c} />
           ))
         )}
       </div>
     </div>
   );
 }
+

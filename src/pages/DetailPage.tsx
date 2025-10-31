@@ -84,6 +84,7 @@ export default function DetailPage() {
                 <img
                   src={imageUrl}
                   alt={anime.title}
+                  loading="lazy"
                   onError={() => setImageError(true)}
                   className="w-full rounded-lg shadow-xl object-cover"
                 />
