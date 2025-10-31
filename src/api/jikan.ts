@@ -23,8 +23,6 @@ export const searchAnime = async (
 
   if (q) {
     params.q = encodeURIComponent(q)
-    // params.order_by = 'score'
-    // params.sort = 'desc'
   } else if (recommended) {
     params.order_by = recommendedMap[recommended].order_by
     params.sort = recommendedMap[recommended].sort
@@ -38,6 +36,6 @@ export const searchAnime = async (
 }
 
 export const getAnimeById = async (id: number) => {
-  const res = await api.get(`/anime/${id}`)
+  const res = await api.get(`/anime/${id}/full`)
   return res.data
 }

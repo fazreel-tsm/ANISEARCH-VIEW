@@ -15,7 +15,7 @@ export const TabButton: React.FC<TabButtonProps> = ({
     <button
         onClick={onClick}
         className={`px-3 py-1 rounded-full font-semibold text-xs transition-all duration-300 
-            border-[3px] backdrop-blur-xl
+            border-[3px] backdrop-blur-xl shadow-md
             ${
             active
                 ? "bg-tab-active border-tab-border"
