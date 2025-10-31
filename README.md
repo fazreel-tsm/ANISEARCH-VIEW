@@ -31,16 +31,20 @@ npm run dev
 ## Features
 
 ### System
+- Mobile responsive
 - Progressive Web App (PWA)
 - Light / Dark mode with automatic theme detection
-- Error boundary & error page
-- 404 Not Found page
+- Global Error Boundary and dedicated error page
+- Custom 404 Not Found page
+- Lazy loading images for better performance
+- Redux-powered state management for global data
 
 ### Search Page
-- Recommended list: Most popular, top rated
-- Search anime by keyword
+- Recommended lists: Most Popular and Top Rated anime
+- Keyword-based anime search
 - Pagination with smooth transitions
 - Jump to specific page
+- Scroll to top button
 
 ### Detail Page
 - Embedded trailer (if available)
@@ -48,3 +52,4 @@ npm run dev
 - Overview tab
 - Character tab (with search)
 - Staff tab (with search)
+- Scroll to top button
