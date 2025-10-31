@@ -4,6 +4,8 @@
 - Handle anime data fetching with Redux Toolkit and API calls to Jikan API (https://docs.api.jikan.moe) - (getAnimeSearch, getAnimeFullById, getAnimeStaff, getAnimeCharacters) in a React app.
 - Create a responsive header component with a dark mode toggle that follows the system theme by default, allowing the user to switch manually. Use Tailwind CSS for styling.
 - Set up the app as a Progressive Web App (PWA) using Vite PWA plugin, including a web manifest, service worker with auto-update, and icons. Ensure the app is installable on both desktop and mobile, supports offline usage, and works with light/dark theme.
+- Create a reusable ScrollToTop component that appears after the user scrolls down a page. Smoothly scrolls the viewport to the top when clicked. Works on all pages, supports light/dark mode styling, and is responsive.
+- Create a debounced search function (250ms) for my fetchAnime.
 
 ## 2. Search Page
 - Create a responsive grid layout of AnimeCard components with lazy-loaded images, Skeleton loaders for loading states, fully integrated with Redux Toolkit and the Jikan API slice for fetching anime data.
