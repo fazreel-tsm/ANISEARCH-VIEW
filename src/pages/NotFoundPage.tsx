@@ -21,10 +21,9 @@ export default function NotFoundPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center text-text font-headline">
-      <FrostedBackground />
 
       <img
-        src="/anime_sad_face.png"
+        src="/photos/anime_sad_face.png"
         className="w-60 h-auto text-text mb-6 pr-5"
         style={{
           filter: isDark
