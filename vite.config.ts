@@ -9,6 +9,10 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: [
         'favicon.png',
+        'photos/anime_sad_face.png',
+        'photos/cycling1.png',
+        'photos/bg-dark.jpg',
+        'photos/bg-light.jpg',
       ],
       manifest: {
         name: 'AniSearch App',
