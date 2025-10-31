@@ -39,3 +39,13 @@ export const getAnimeById = async (id: number) => {
   const res = await api.get(`/anime/${id}/full`)
   return res.data
 }
+
+export const getAnimeCharacters = async (id: number) => {
+  const res = await api.get(`/anime/${id}/characters`);
+  return res.data.data;
+};
+
+export const getAnimeStaff = async (id: number) => {
+  const res = await api.get(`/anime/${id}/staff`);
+  return res.data.data;
+};

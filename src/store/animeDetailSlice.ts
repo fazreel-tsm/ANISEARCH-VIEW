@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getAnimeById } from "../api/jikan";
+import { getAnimeById, getAnimeCharacters, getAnimeStaff } from "../api/jikan";
 
 interface AnimeDetailState {
   details: Record<number, any>;
@@ -22,7 +22,7 @@ export const fetchAnimeDetail = createAsyncThunk(
   "animeDetail/fetch",
   async (id: number) => {
     const res = await getAnimeById(id);
-    return res.data; // your jikan.ts returns { data: { ... } }
+    return res.data;
   }
 );
 
@@ -30,9 +30,8 @@ export const fetchAnimeDetail = createAsyncThunk(
 export const fetchAnimeCharacters = createAsyncThunk(
   "animeDetail/fetchCharacters",
   async (id: number) => {
-    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`);
-    const data = await res.json();
-    return { id, data: data.data || [] };
+    const data = await getAnimeCharacters(id);
+    return { id, data };
   }
 );
 
@@ -40,9 +39,8 @@ export const fetchAnimeCharacters = createAsyncThunk(
 export const fetchAnimeStaff = createAsyncThunk(
   "animeDetail/fetchStaff",
   async (id: number) => {
-    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/staff`);
-    const data = await res.json();
-    return { id, data: data.data || [] };
+    const data = await getAnimeStaff(id);
+    return { id, data };
   }
 );
 
