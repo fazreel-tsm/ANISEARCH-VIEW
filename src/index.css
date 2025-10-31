@@ -6,7 +6,7 @@
 :root { 
   --bg: #F3ECF7;
   --bg-input: #f3ecf754;
-  --bg-image: url('/bg-light.jpg');
+  --bg-image: url('/photos/bg-light.jpg');
   --text: rgb(59, 60, 63);
   --placeholder: rgba(59, 60, 63, 0.75);
   --border: #a25fd8;
@@ -24,7 +24,7 @@
 [data-theme='dark'] {
   --bg: #1A171C;
   --bg-input: #1A171C54;
-  --bg-image: url('/bg-dark.jpg');
+  --bg-image: url('/photos/bg-dark.jpg');
   --text: #e6eef8;
   --placeholder: #e6eef8b9;
   --border: #382f3d;
