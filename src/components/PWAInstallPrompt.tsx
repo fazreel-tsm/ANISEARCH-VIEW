@@ -23,8 +23,15 @@ export default function PWAInstallPrompt() {
       setDeferredPrompt(e);
       setShowModal(true);
     };
-
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+    // iOS fallback (no beforeinstallprompt event)
+    if (isIos) {
+      const timer = setTimeout(() => {
+        setShowModal(true);
+      }, 3000); // show after 3s
+      return () => clearTimeout(timer);
+    }
 
     return () =>
       window.removeEventListener(
