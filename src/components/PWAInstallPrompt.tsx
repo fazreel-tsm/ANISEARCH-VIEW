@@ -8,7 +8,7 @@ export default function PWAInstallPrompt() {
     // Don’t show if already installed
     const isStandalone =
       window.matchMedia("(display-mode: standalone)").matches ||
-      (window.navigator as any).standalone;
+      (window.navigator as any).standalone === true;
 
     if (isStandalone) return;
 
