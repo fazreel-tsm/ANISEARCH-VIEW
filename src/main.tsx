@@ -6,6 +6,7 @@ import App from './App'
 import { store } from './store'
 import './index.css'
 import { registerSW } from 'virtual:pwa-register'
+import PWAInstallPrompt from './components/PWAInstallPrompt'
 
 registerSW({
   onNeedRefresh() {
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
       <BrowserRouter>
         <App />
+        <PWAInstallPrompt />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
