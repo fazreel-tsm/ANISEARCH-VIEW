@@ -15,7 +15,7 @@ export default function PWAInstallPrompt() {
     // Don’t show if dismissed within 1 day
     const dismissedUntil = localStorage.getItem("pwaDismissedUntil");
     const now = Date.now();
-    if (dismissedUntil && Number(dismissedUntil) > now) return;
+    // if (dismissedUntil && Number(dismissedUntil) > now) return;
 
     // Listen for install prompt (Android/Chrome)
     const handleBeforeInstallPrompt = (e: any) => {
@@ -50,8 +50,9 @@ export default function PWAInstallPrompt() {
   const handleInstall = async () => {
     // Handle iOS
     if (isIos && !isInStandalone) {
+      setShowModal(false);
       alert(
-        "To install this app, tap the Share icon ( ) then 'Add to Home Screen'."
+        "To install this app, tap the Share icon (↑) then 'Add to Home Screen'."
       );
       return;
     }
