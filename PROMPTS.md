@@ -6,6 +6,7 @@
 - Set up the app as a Progressive Web App (PWA) using Vite PWA plugin, including a web manifest, service worker with auto-update, and icons. Ensure the app is installable on both desktop and mobile, supports offline usage, and works with light/dark theme.
 - Create a reusable ScrollToTop component that appears after the user scrolls down a page. Smoothly scrolls the viewport to the top when clicked. Works on all pages, supports light/dark mode styling, and is responsive.
 - Create a debounced search function (250ms) for my fetchAnime.
+- Create an install prompt component which should appear after checking wether the app is intalled or not. After turn down it will snooze for 1 day. If already installed return false.
 
 ## 2. Search Page
 - Create a responsive grid layout of AnimeCard components with lazy-loaded images, Skeleton loaders for loading states, fully integrated with Redux Toolkit and the Jikan API slice for fetching anime data.

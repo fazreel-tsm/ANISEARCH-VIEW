@@ -32,7 +32,7 @@ npm run dev
 
 ### System
 - Mobile responsive
-- Progressive Web App (PWA)
+- Progressive Web App (PWA) with install prompt
 - Light / Dark mode with automatic theme detection
 - Global Error Boundary and dedicated error page
 - Custom 404 Not Found page
