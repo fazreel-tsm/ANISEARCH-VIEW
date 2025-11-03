@@ -15,7 +15,7 @@ export default function PWAInstallPrompt() {
     // Don’t show if dismissed within 1 day
     const dismissedUntil = localStorage.getItem("pwaDismissedUntil");
     const now = Date.now();
-    // if (dismissedUntil && Number(dismissedUntil) > now) return;
+    if (dismissedUntil && Number(dismissedUntil) > now) return;
 
     // Listen for install prompt (Android/Chrome)
     const handleBeforeInstallPrompt = (e: any) => {
@@ -29,7 +29,7 @@ export default function PWAInstallPrompt() {
     if (isIos) {
       const timer = setTimeout(() => {
         setShowModal(true);
-      }, 3000); // show after 3s
+      }, 2000); // show after 2s
       return () => clearTimeout(timer);
     }
 
@@ -67,13 +67,11 @@ export default function PWAInstallPrompt() {
     } else {
       console.log("User dismissed install");
     }
-
     setShowModal(false);
   };
 
   const handleDismiss = () => {
-    const laterTime = Date.now() + 24 * 60 * 60 * 1000; // Snooze for 1 day
-    // const laterTime = Date.now() + 10 * 1000; // Snooze for 10 seconds
+    const laterTime = Date.now() + 6 * 60 * 60 * 1000; // Snooze for 6 hours
     localStorage.setItem("pwaDismissedUntil", String(laterTime));
     setShowModal(false);
   };
@@ -82,7 +80,7 @@ export default function PWAInstallPrompt() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="font-headline bg-white/70 dark:bg-black/50 backdrop-blur-3xl border-t-2 border-l-2 border-border text-text rounded-xl shadow-lg p-6 max-w-sm text-center">
+      <div className="font-headline bg-white/70 dark:bg-black/40 backdrop-blur-3xl border-t border-l border-white dark:border-white/50 text-text rounded-xl shadow-lg p-6 max-w-sm text-center">
         <h2 className="text-lg mb-2 text-text">Install this app?</h2>
         <p className="text-sm mb-4 text-text">
           Add this app to your home screen for a better experience.
