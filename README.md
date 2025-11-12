@@ -1,7 +1,8 @@
 # Anime Search App
 
-A responsive anime search web app built with **Vite + React 18 + TypeScript**, powered by the [Jikan API](https://docs.api.jikan.moe) (AniSearch)
-🌐 **Live Demo:** [https://ani-search-fazreel.netlify.app/](https://ani-search-fazreel.netlify.app/)
+A responsive anime search web app built with **Vite + React 18 + TypeScript**, powered by the [Jikan API](https://docs.api.jikan.moe)
+
+🌐 **Live Demo:** [AniSearch](https://ani-search-fazreel.netlify.app/)
 
 ## Quickstart
 
