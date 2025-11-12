@@ -1,6 +1,7 @@
 # Anime Search App
 
-Vite + React 18 + TypeScript SPA using Jikan API (MyAnimeList).
+A responsive anime search web app built with **Vite + React 18 + TypeScript**, powered by the [Jikan API](https://docs.api.jikan.moe) (AniSearch)
+🌐 **Live Demo:** [https://ani-search-fazreel.netlify.app/](https://ani-search-fazreel.netlify.app/)
 
 ## Quickstart
 
